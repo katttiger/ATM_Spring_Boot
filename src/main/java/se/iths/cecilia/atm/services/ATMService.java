@@ -28,11 +28,11 @@ public class ATMService {
         if(amount<1){
             throw new InvalidAmountException("You may only withdraw an amount represented by a positive whole number");
         }
-        if(amount > accountComponent.getBalance()) {
-            throw new InsufficientFundsException("You do not have enough money");
-        }
         if(amount > maximumAmountAllowed) {
             throw new MaxWithdrawalExceededException("You cannot withdraw more than 500 SEK");
+        }
+        if(amount > accountComponent.getBalance()) {
+            throw new InsufficientFundsException("You do not have enough money");
         }
         else{
             accountComponent.decreaseBalance(amount);
