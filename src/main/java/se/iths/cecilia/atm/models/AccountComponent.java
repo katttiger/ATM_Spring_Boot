@@ -19,9 +19,4 @@ public class AccountComponent {
     public void decreaseBalance(int balance) {
         this.balance -= balance;
     }
-
-    //Used only for testing
-    public void setBalance(int balance) {
-        this.balance = balance;
-    }
 }
