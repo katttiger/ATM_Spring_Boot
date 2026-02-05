@@ -9,20 +9,15 @@ import java.util.regex.Pattern;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
+
+//NOTE: Server must be open in order for the tests to be run
 class ATMControllerTest {
 
-
-    // Shared between all tests in this class.
     static Playwright playwright;
     static Browser browser;
 
-    // New instance for each test method.
     BrowserContext context;
     Page page;
-
-    // TODO: Läs på om playwright
-    // TODO: Skriv testerna
-
 
     @BeforeAll
     static void launchBrowser() {
