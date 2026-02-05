@@ -22,4 +22,4 @@ at async Frame._gotoAction (/tmp/playwright-java-1488943034847455992/package/lib
 
 ---
 
-This issue will have to be resolved but at the moment no solution has been found.
+This issue will have to be resolved but at the moment no solution has been found. The tests can be run successfully on local device if the server is on (Application has been started).
