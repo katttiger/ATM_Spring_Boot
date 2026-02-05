@@ -22,7 +22,7 @@ class ATMControllerTest {
     @BeforeAll
     static void launchBrowser() {
         playwright = Playwright.create();
-        browser = playwright.chromium().launch();
+        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setChannel("chromium"));
     }
 
     @AfterAll
@@ -43,7 +43,7 @@ class ATMControllerTest {
 
 
     @Test
-    @DisplayName("The root-page can be reached")
+    @DisplayName("The page can be reached")
     void pageCanBeReached() {
         page.navigate("http://localhost:8080/");
         assertThat(page).hasTitle(Pattern.compile("Balance"));
