@@ -1,0 +1,40 @@
+# Copyright: https://faruk-hasan.com/blog_post/github_actions_playwright_test.html
+# test-workflow.yml
+name: Run Playwright Tests
+
+# 1. Trigger: Run this workflow on every push or pull request to main
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+# 2. Jobs section: We only have one job—run Playwright tests on Ubuntu
+jobs:
+  test:
+    # The virtual environment (runner) to use
+    runs-on: ubuntu-latest
+
+    # 3. Steps within the 'test' job
+    steps:
+      # 3.1. Checkout the repository code so it's available in the runner
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      # 3.2. Install Node.js (LTS). This makes `node` and `npm` available.
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'  # use your preferred Node.js version
+
+      # 3.3. Install project dependencies (i.e., Playwright, etc.)
+      - name: Install npm dependencies
+        run: npm install
+
+      # 3.4. Install Playwright browsers (Chromium, Firefox, WebKit)
+      - name: Install Playwright Browsers
+        run: npx playwright install
+
+      # 3.5. Run Playwright tests (headless by default)
+      - name: Run Playwright Tests
+        run: npx playwright test
