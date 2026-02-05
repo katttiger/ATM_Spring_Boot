@@ -16,7 +16,7 @@ import se.iths.cecilia.atm.models.AccountComponent;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
-
+@ExtendWith(MockitoExtension.class)
 @ExtendWith(MockitoExtension.class)
 class ATMServiceTest {
 
@@ -73,7 +73,7 @@ class ATMServiceTest {
     void addAmountThrowsInvalidAmountException() {
         assertThrows(InvalidAmountException.class, () -> atmService.addAmount(0));
     }
-    
+
     @Test
     @DisplayName("Verify that the method decreaseAmount is called from accountComponent")
     void decreaseAmountIsCalled() {
