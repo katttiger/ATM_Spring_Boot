@@ -1,4 +1,13 @@
 name: Playwright Tests
+description: Run Playwright test
+
+runs:
+  using: docker
+  image: docker://mcr.microsoft.com/playwright:v1.34.3-jammy
+  args:
+    - npx
+    - playwright
+    - test
 on:
   push:
     branches: [ main, master ]
